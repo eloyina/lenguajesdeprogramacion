@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1441132322 source:/home/eloya/Documents/lenguajesprogramas/main.cpp
+	<stdio.h>
+	<ctype.h>
+
