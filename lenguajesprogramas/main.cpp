@@ -1,5 +1,12 @@
 #include <stdio.h>
 #include <ctype.h>
+ /*
+    * Author:RObert W. Sebesta
+    * Fuction: front.c a lexical analyzer system
+                for a simple arithmetic expressions
+    * Language: C
+    */
+
 /* Global declarations */
 /* Variables */
 int charClass;
@@ -9,7 +16,6 @@ int lexLen;
 int token;
 int nextToken;
 FILE *in_fp, *fopen();
-
 int flag = 0;
 
 /* Function declarations */
@@ -47,7 +53,7 @@ else {
 do {
      lex();
    }
-while (nextToken != EOF);
+     while (nextToken != EOF);
   }
 }
 
@@ -60,31 +66,38 @@ int lookup(char ch) {
           addChar();
           nextToken = LEFT_PAREN;
           break;
+
     case ')':
           addChar();
           nextToken = RIGHT_PAREN;
           break;
+
     case '+':
           addChar();
           nextToken = ADD_OP;
           break;
+
     case '-':
           addChar();
           nextToken = SUB_OP;
           break;
+
     case '*':
           addChar();
           nextToken = MULT_OP;
           break;
+
     case '/':
           addChar();
           nextToken = DIV_OP;
           break;
+
     case '.':
           addChar();
           nextToken = POINT;
           break;
-    default:
+
+        default:
           addChar();
           nextToken = EOF;
           break;
@@ -99,7 +112,8 @@ void addChar() {
         lexeme[lexLen++] = nextChar;
         lexeme[lexLen] = 0;
       }
-    else    printf("Error - lexeme is too long \n");
+    else
+       printf("Error - lexeme is too long \n");
 }
 
 /*****************************************************/
@@ -109,13 +123,15 @@ void getChar() {
     if ((nextChar = getc(in_fp)) != EOF) {
         if (isalpha(nextChar))
             charClass = LETTER;
-        else if (isdigit(nextChar))
-            charClass = DIGIT;
-        else if (nextChar == '.')
-            charClass = POINT;
-        else charClass = UNKNOWN;
+            else if (isdigit(nextChar))
+                charClass = DIGIT;
+            else if (nextChar == '.')
+                charClass = POINT;
+        else
+         charClass = UNKNOWN;
     }
-    else    charClass = EOF;
+    else
+      charClass = EOF;
 }
 
 /*****************************************************/
@@ -133,7 +149,8 @@ int lex() {
   lexLen = 0;
   getNonBlank();
 switch (charClass) {
-    /* Parse identifiers */
+
+ /* Parse identifiers */
     case LETTER:
         addChar();
         getChar();
@@ -161,6 +178,8 @@ switch (charClass) {
                 getChar();
             }
         }
+/* Add the floating point to return the numbers
+    after the point */
    if(flag){
     nextToken =POINT_LIT;
     flag =0;if(flag){
