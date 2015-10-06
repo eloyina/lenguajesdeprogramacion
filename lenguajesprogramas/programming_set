@@ -71,7 +71,7 @@ def thirdFunction(a, b):
 
 
 ############################################################### 5
-
+#######################c5
 #include <stdio.h>
 int x;
 
@@ -88,7 +88,7 @@ int main()
     return 0;
 }
 
-
+######################c++5
 
 
 #include <iostream>
@@ -106,7 +106,7 @@ int main()
     fun();
     return 0;
 }
-
+###################java5
 public class HelloWorld{
 
 static int x;
