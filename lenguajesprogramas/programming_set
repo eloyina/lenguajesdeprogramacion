@@ -72,218 +72,58 @@ def thirdFunction(a, b):
 
 ############################################################### 5
 
-#########################1
-;Lisp
-(defun addn (n)
-#'(lambda (x)
-(+ x n )))
-ADDN
-[3]> (defun addn (n)
+#include <stdio.h>
+int x;
 
-Toma un numero n,retorna una funcion que
-agrega n a sus argumentos.
-
-########################2
-#!/usr/bin/perl -w
-
-package Morales;
-
-$elizabeth = "alumna";
-
-sub terminate {
-  my $name = shift;
-  print "$elizabeth es una ${name} lo sentimos\n";
-}
-
-terminate("danielo");
-
-package main;
-
-#El paquete es Morales la varible elizabeth es la alumna.
-#shift saca ese elemento incluyendolo.
-
-########################################### 3
-<html>
-   <head>
-      
-      <script type="text/javascript">
-         <!--
-            function hypotenuse(a, b) {
-               function square(x) { return x*x; }
-               return Math.sqrt(square(a) + square(b));
-            }
-            
-            function secondFunction(){
-               var result;
-               result = hypotenuse(1,2);
-               return result;
-            }
-             
-           function thirdFunction(){
-               var result;
-               result = secondFunction()+ 4;
-               return result;
-            }
-          
-
-       //-->
-      </script>
-      
-   </head>
-
-</html>
-######################################################### 4 
-def hypotenuse(a, b):
-	return math.sqrt(a ** 2.0 + b ** 2.0)
+void fun()
+{
+    x=21;
+    int x;
+    x=42;
     
-def secondFunction():
-	return hypotenuse(1, 2)
-
-def thirdFunction(a, b):
-	return secondFunction()+ 4
-
-
-############################################################### 5
-No se puede declarar x =21; antes de especificar su tipo
-en c, ni en java y c++, porque necesita saber que es x para igualar.
-Tienen en bloque ,la misma jerarquia es mixto por igualación con la declaración. y 
-carecen de orden de declaracion.
-
-################################################################ 6
-c++:
-#include <iostream>
-
-using namespace std;
-
+}
 int main()
 {
-                                                                                                                                     
-    for ( int i = 0; i<=5; i++)  cout << i << endl;
-    for( int i = 5; i>=0; i--)  cout << i << endl;
- 
-   return 0;
+    fun();
+    return 0;
 }
 
 
 
-java:
+
+#include <iostream>
+int x;
+
+void fun()
+{
+    x=21;
+    int x;
+    x=42;
+    
+}
+int main()
+{
+    fun();
+    return 0;
+}
+
 public class HelloWorld{
 
-     public static void main(String []args){
-         for ( int i = 0; i<=5; i++)  System.out.println(i);
-         for(  int i = 5; i>=0; i--)  System.out.println(i);
-        System.out.println("Hello World");
-     }
-}
-
-
-c#: 
-using System.IO;
-using System;
-
-class Program
-{
-    static void Main()
-    {
-      for ( int i = 0; i<=5; i++)  Console.Write(i); // 0 1 2 3 4 5 
-      Console.WriteLine("");
-      for ( int i = 5; i>=0; i--)  Console.Write(i); // 5 4 3 2 1 0
-    }
-}
-
-######################################################################## 7 
-################ 7.a
-#include <iostream>
-
-using namespace std;
-
-void StaticArray()
-{
-     int x[1];
-     cout<<x[1]<<endl;
-}
-
-
-
-void StackArray()
-{
-    double *n = new double[4200];
-    n[0]= 6;
-    cout<<(*n)<<endl;
-    delete[] n;
-}
-
-
-
-void HeapArray()
-{
-   string fruit[] = {"Apple", "Orange", "Banana"};
-   string *stuff = new string[3];
-   stuff[0] = "Apple";
-   stuff[1] = "Orange";
-   stuff[2] = "Banana";
-   cout << sizeof(fruit) << endl;
-   cout << sizeof(stuff) << endl;
-   delete [] stuff;    
-}
-
-int main()
-{
-   StaticArray();
-   StackArray();          
-   HeapArray();
-   return 0;
-}
-
-
-#############7.b
-#include <stdio.h>
-
-////c
-void StaticArray()
-{
-     int x[1];
-
-    printf("\n [%s]\n", x[1]);
-
-}
-
-
-
-void StackArray()
-{
-    char * ptr1 = "Ahora";
-    char* n[4];
-    n[0]=ptr1;
-   
+static int x;
     
-    printf("\n [%s]\n", n[0]); 
+    public static void fun ()
+    {
+        x=21;
+        int x;
+        x=42;
+        System.out.println(x);
+    }
+     public static void main(String []args){
+        fun();
+     }
+
+
 }
-
-
-
-void HeapArray()
-{
-   const char *strings[] = {"Apple", "Orange", "Banana"}; 
-  
-    printf("%s\n", strings[1]);
-   
- 
-}
-
-int main()
-{
-   StaticArray();
-   StackArray();          
-   HeapArray();
-   return 0;
-}
-
-
-
-
-
-
 
 ################################################################ 6
 c++:
