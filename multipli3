@@ -1,0 +1,815 @@
+	.file	"pruebasmat.cpp"
+	.local	_ZStL8__ioinit
+	.comm	_ZStL8__ioinit,1,1
+	.text
+	.globl	_Z12crear_matrizRPPiii
+	.type	_Z12crear_matrizRPPiii, @function
+_Z12crear_matrizRPPiii:
+.LFB975:
+	.cfi_startproc
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	pushl	%ebx
+	subl	$36, %esp
+	.cfi_offset 3, -12
+	movl	12(%ebp), %eax
+	sall	$2, %eax
+	movl	%eax, (%esp)
+	call	_Znaj
+	movl	%eax, %edx
+	movl	8(%ebp), %eax
+	movl	%edx, (%eax)
+	movl	$0, -12(%ebp)
+	jmp	.L2
+.L3:
+	movl	8(%ebp), %eax
+	movl	(%eax), %eax
+	movl	-12(%ebp), %edx
+	sall	$2, %edx
+	leal	(%eax,%edx), %ebx
+	movl	16(%ebp), %eax
+	sall	$2, %eax
+	movl	%eax, (%esp)
+	call	_Znaj
+	movl	%eax, (%ebx)
+	addl	$1, -12(%ebp)
+.L2:
+	movl	-12(%ebp), %eax
+	cmpl	12(%ebp), %eax
+	setl	%al
+	testb	%al, %al
+	jne	.L3
+	addl	$36, %esp
+	popl	%ebx
+	.cfi_restore 3
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.cfi_endproc
+.LFE975:
+	.size	_Z12crear_matrizRPPiii, .-_Z12crear_matrizRPPiii
+	.globl	_Z13llenar_matrizPPiii
+	.type	_Z13llenar_matrizPPiii, @function
+_Z13llenar_matrizPPiii:
+.LFB976:
+	.cfi_startproc
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	subl	$40, %esp
+	movl	$0, -16(%ebp)
+	jmp	.L5
+.L8:
+	movl	$0, -12(%ebp)
+	jmp	.L6
+.L7:
+	movl	-16(%ebp), %eax
+	leal	0(,%eax,4), %edx
+	movl	8(%ebp), %eax
+	addl	%edx, %eax
+	movl	(%eax), %eax
+	movl	-12(%ebp), %edx
+	sall	$2, %edx
+	addl	%edx, %eax
+	movl	%eax, 4(%esp)
+	movl	$_ZSt3cin, (%esp)
+	call	_ZNSirsERi
+	addl	$1, -12(%ebp)
+.L6:
+	movl	-12(%ebp), %eax
+	cmpl	16(%ebp), %eax
+	setl	%al
+	testb	%al, %al
+	jne	.L7
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	addl	$1, -16(%ebp)
+.L5:
+	movl	-16(%ebp), %eax
+	cmpl	12(%ebp), %eax
+	setl	%al
+	testb	%al, %al
+	jne	.L8
+	leave
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.cfi_endproc
+.LFE976:
+	.size	_Z13llenar_matrizPPiii, .-_Z13llenar_matrizPPiii
+	.section	.rodata
+.LC0:
+	.string	" "
+	.text
+	.globl	_Z15imprimir_matrizPPiii
+	.type	_Z15imprimir_matrizPPiii, @function
+_Z15imprimir_matrizPPiii:
+.LFB977:
+	.cfi_startproc
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	subl	$40, %esp
+	movl	$0, -16(%ebp)
+	jmp	.L10
+.L13:
+	movl	$0, -12(%ebp)
+	jmp	.L11
+.L12:
+	movl	-16(%ebp), %eax
+	leal	0(,%eax,4), %edx
+	movl	8(%ebp), %eax
+	addl	%edx, %eax
+	movl	(%eax), %eax
+	movl	-12(%ebp), %edx
+	sall	$2, %edx
+	addl	%edx, %eax
+	movl	(%eax), %eax
+	movl	%eax, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZNSolsEi
+	movl	$.LC0, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	addl	$1, -12(%ebp)
+.L11:
+	movl	-12(%ebp), %eax
+	cmpl	16(%ebp), %eax
+	setl	%al
+	testb	%al, %al
+	jne	.L12
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	addl	$1, -16(%ebp)
+.L10:
+	movl	-16(%ebp), %eax
+	cmpl	12(%ebp), %eax
+	setl	%al
+	testb	%al, %al
+	jne	.L13
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	leave
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.cfi_endproc
+.LFE977:
+	.size	_Z15imprimir_matrizPPiii, .-_Z15imprimir_matrizPPiii
+	.section	.rodata
+	.align 4
+.LC1:
+	.string	"IMPORTANTE: Para la multiplicacion de matrices las filas de la matriz 1 deben"
+	.align 4
+.LC2:
+	.string	"tener la misma dimension que las columnas de la matriz 2"
+.LC3:
+	.string	"Dimensiones de la matriz 1"
+.LC4:
+	.string	"Columnas :"
+.LC5:
+	.string	"Filas :"
+	.align 4
+.LC6:
+	.string	"Ingresa los valores de la matriz 1"
+.LC7:
+	.string	"Matriz 1"
+.LC8:
+	.string	"Dimensiones de la matriz 2"
+	.align 4
+.LC9:
+	.string	"Ingresa los valores de la matriz 2"
+.LC10:
+	.string	"Matriz 2"
+.LC11:
+	.string	"Matriz multiplicada"
+	.text
+	.globl	_Z20multiplicar_matricesPPiS0_
+	.type	_Z20multiplicar_matricesPPiS0_, @function
+_Z20multiplicar_matricesPPiS0_:
+.LFB978:
+	.cfi_startproc
+	.cfi_personality 0,__gxx_personality_v0
+	.cfi_lsda 0,.LLSDA978
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	pushl	%esi
+	pushl	%ebx
+	subl	$64, %esp
+	.cfi_offset 6, -12
+	.cfi_offset 3, -16
+	movl	$.LC1, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+.LEHB0:
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$.LC2, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$.LC3, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$.LC4, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	leal	-36(%ebp), %eax
+	movl	%eax, 4(%esp)
+	movl	$_ZSt3cin, (%esp)
+	call	_ZNSirsERi
+	movl	$.LC5, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	leal	-44(%ebp), %eax
+	movl	%eax, 4(%esp)
+	movl	$_ZSt3cin, (%esp)
+	call	_ZNSirsERi
+	movl	$.LC6, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	-44(%ebp), %edx
+	movl	-36(%ebp), %eax
+	movl	%edx, 8(%esp)
+	movl	%eax, 4(%esp)
+	leal	8(%ebp), %eax
+	movl	%eax, (%esp)
+	call	_Z12crear_matrizRPPiii
+	movl	-44(%ebp), %ecx
+	movl	-36(%ebp), %edx
+	movl	8(%ebp), %eax
+	movl	%ecx, 8(%esp)
+	movl	%edx, 4(%esp)
+	movl	%eax, (%esp)
+	call	_Z13llenar_matrizPPiii
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$.LC7, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	-44(%ebp), %ecx
+	movl	-36(%ebp), %edx
+	movl	8(%ebp), %eax
+	movl	%ecx, 8(%esp)
+	movl	%edx, 4(%esp)
+	movl	%eax, (%esp)
+	call	_Z15imprimir_matrizPPiii
+	movl	$.LC8, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$.LC4, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	leal	-32(%ebp), %eax
+	movl	%eax, 4(%esp)
+	movl	$_ZSt3cin, (%esp)
+	call	_ZNSirsERi
+	movl	$.LC5, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	leal	-40(%ebp), %eax
+	movl	%eax, 4(%esp)
+	movl	$_ZSt3cin, (%esp)
+	call	_ZNSirsERi
+	movl	$.LC9, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	-40(%ebp), %edx
+	movl	-32(%ebp), %eax
+	movl	%edx, 8(%esp)
+	movl	%eax, 4(%esp)
+	leal	12(%ebp), %eax
+	movl	%eax, (%esp)
+	call	_Z12crear_matrizRPPiii
+	movl	-40(%ebp), %ecx
+	movl	-32(%ebp), %edx
+	movl	12(%ebp), %eax
+	movl	%ecx, 8(%esp)
+	movl	%edx, 4(%esp)
+	movl	%eax, (%esp)
+	call	_Z13llenar_matrizPPiii
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$.LC10, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	-40(%ebp), %ecx
+	movl	-32(%ebp), %edx
+	movl	12(%ebp), %eax
+	movl	%ecx, 8(%esp)
+	movl	%edx, 4(%esp)
+	movl	%eax, (%esp)
+	call	_Z15imprimir_matrizPPiii
+	movl	-40(%ebp), %edx
+	movl	-44(%ebp), %eax
+	cmpl	%eax, %edx
+	jle	.L15
+	movl	-40(%ebp), %eax
+	movl	%eax, -24(%ebp)
+	jmp	.L16
+.L15:
+	movl	-44(%ebp), %eax
+	movl	%eax, -24(%ebp)
+.L16:
+	movl	-44(%ebp), %eax
+	movl	-24(%ebp), %edx
+	movl	%edx, 8(%esp)
+	movl	%eax, 4(%esp)
+	leal	-28(%ebp), %eax
+	movl	%eax, (%esp)
+	call	_Z12crear_matrizRPPiii
+	movl	$0, -20(%ebp)
+	jmp	.L17
+.L22:
+	movl	$0, -16(%ebp)
+	jmp	.L18
+.L21:
+	movl	-28(%ebp), %eax
+	movl	-20(%ebp), %edx
+	sall	$2, %edx
+	addl	%edx, %eax
+	movl	(%eax), %eax
+	movl	-16(%ebp), %edx
+	sall	$2, %edx
+	addl	%edx, %eax
+	movl	$0, (%eax)
+	movl	$0, -12(%ebp)
+	jmp	.L19
+.L20:
+	movl	-28(%ebp), %eax
+	movl	-20(%ebp), %edx
+	sall	$2, %edx
+	addl	%edx, %eax
+	movl	(%eax), %eax
+	movl	-16(%ebp), %edx
+	sall	$2, %edx
+	addl	%edx, %eax
+	movl	-28(%ebp), %edx
+	movl	-20(%ebp), %ecx
+	sall	$2, %ecx
+	addl	%ecx, %edx
+	movl	(%edx), %edx
+	movl	-16(%ebp), %ecx
+	sall	$2, %ecx
+	addl	%ecx, %edx
+	movl	(%edx), %ecx
+	movl	8(%ebp), %edx
+	movl	-20(%ebp), %ebx
+	sall	$2, %ebx
+	addl	%ebx, %edx
+	movl	(%edx), %edx
+	movl	-12(%ebp), %ebx
+	sall	$2, %ebx
+	addl	%ebx, %edx
+	movl	(%edx), %ebx
+	movl	12(%ebp), %edx
+	movl	-12(%ebp), %esi
+	sall	$2, %esi
+	addl	%esi, %edx
+	movl	(%edx), %edx
+	movl	-16(%ebp), %esi
+	sall	$2, %esi
+	addl	%esi, %edx
+	movl	(%edx), %edx
+	imull	%ebx, %edx
+	addl	%ecx, %edx
+	movl	%edx, (%eax)
+	addl	$1, -12(%ebp)
+.L19:
+	movl	-44(%ebp), %eax
+	cmpl	%eax, -12(%ebp)
+	setl	%al
+	testb	%al, %al
+	jne	.L20
+	addl	$1, -16(%ebp)
+.L18:
+	movl	-16(%ebp), %eax
+	cmpl	-24(%ebp), %eax
+	setl	%al
+	testb	%al, %al
+	jne	.L21
+	addl	$1, -20(%ebp)
+.L17:
+	movl	-44(%ebp), %eax
+	cmpl	%eax, -20(%ebp)
+	setl	%al
+	testb	%al, %al
+	jne	.L22
+	movl	$.LC11, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	-44(%ebp), %edx
+	movl	-28(%ebp), %eax
+	movl	-24(%ebp), %ecx
+	movl	%ecx, 8(%esp)
+	movl	%edx, 4(%esp)
+	movl	%eax, (%esp)
+	call	_Z15imprimir_matrizPPiii
+.LEHE0:
+	jmp	.L25
+.L24:
+	movl	%eax, (%esp)
+.LEHB1:
+	call	_Unwind_Resume
+.LEHE1:
+.L25:
+	addl	$64, %esp
+	popl	%ebx
+	.cfi_restore 3
+	popl	%esi
+	.cfi_restore 6
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.cfi_endproc
+.LFE978:
+	.globl	__gxx_personality_v0
+	.section	.gcc_except_table,"a",@progbits
+.LLSDA978:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE978-.LLSDACSB978
+.LLSDACSB978:
+	.uleb128 .LEHB0-.LFB978
+	.uleb128 .LEHE0-.LEHB0
+	.uleb128 .L24-.LFB978
+	.uleb128 0
+	.uleb128 .LEHB1-.LFB978
+	.uleb128 .LEHE1-.LEHB1
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE978:
+	.text
+	.size	_Z20multiplicar_matricesPPiS0_, .-_Z20multiplicar_matricesPPiS0_
+	.section	.rodata
+	.align 4
+.LC12:
+	.string	"IMPORTANTE: Para la suma de matrices ambas matrices deben ser de las mismas dimensiones"
+	.align 4
+.LC13:
+	.string	"Dimensiones de las dos matrices "
+.LC14:
+	.string	"Matriz Suma"
+	.text
+	.globl	_Z14sumar_matricesPPiS0_
+	.type	_Z14sumar_matricesPPiS0_, @function
+_Z14sumar_matricesPPiS0_:
+.LFB979:
+	.cfi_startproc
+	.cfi_personality 0,__gxx_personality_v0
+	.cfi_lsda 0,.LLSDA979
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	pushl	%ebx
+	subl	$52, %esp
+	.cfi_offset 3, -12
+	movl	$.LC12, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+.LEHB2:
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$.LC13, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$.LC4, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	leal	-24(%ebp), %eax
+	movl	%eax, 4(%esp)
+	movl	$_ZSt3cin, (%esp)
+	call	_ZNSirsERi
+	movl	$.LC5, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	leal	-28(%ebp), %eax
+	movl	%eax, 4(%esp)
+	movl	$_ZSt3cin, (%esp)
+	call	_ZNSirsERi
+	movl	$.LC6, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	-28(%ebp), %edx
+	movl	-24(%ebp), %eax
+	movl	%edx, 8(%esp)
+	movl	%eax, 4(%esp)
+	leal	8(%ebp), %eax
+	movl	%eax, (%esp)
+	call	_Z12crear_matrizRPPiii
+	movl	-28(%ebp), %ecx
+	movl	-24(%ebp), %edx
+	movl	8(%ebp), %eax
+	movl	%ecx, 8(%esp)
+	movl	%edx, 4(%esp)
+	movl	%eax, (%esp)
+	call	_Z13llenar_matrizPPiii
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$.LC7, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	-28(%ebp), %ecx
+	movl	-24(%ebp), %edx
+	movl	8(%ebp), %eax
+	movl	%ecx, 8(%esp)
+	movl	%edx, 4(%esp)
+	movl	%eax, (%esp)
+	call	_Z15imprimir_matrizPPiii
+	movl	$.LC9, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	-28(%ebp), %edx
+	movl	-24(%ebp), %eax
+	movl	%edx, 8(%esp)
+	movl	%eax, 4(%esp)
+	leal	12(%ebp), %eax
+	movl	%eax, (%esp)
+	call	_Z12crear_matrizRPPiii
+	movl	-28(%ebp), %ecx
+	movl	-24(%ebp), %edx
+	movl	12(%ebp), %eax
+	movl	%ecx, 8(%esp)
+	movl	%edx, 4(%esp)
+	movl	%eax, (%esp)
+	call	_Z13llenar_matrizPPiii
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$.LC10, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	-28(%ebp), %ecx
+	movl	-24(%ebp), %edx
+	movl	12(%ebp), %eax
+	movl	%ecx, 8(%esp)
+	movl	%edx, 4(%esp)
+	movl	%eax, (%esp)
+	call	_Z15imprimir_matrizPPiii
+	movl	-28(%ebp), %edx
+	movl	-24(%ebp), %eax
+	movl	%edx, 8(%esp)
+	movl	%eax, 4(%esp)
+	leal	-20(%ebp), %eax
+	movl	%eax, (%esp)
+	call	_Z12crear_matrizRPPiii
+	movl	$0, -16(%ebp)
+	jmp	.L27
+.L30:
+	movl	$0, -12(%ebp)
+	jmp	.L28
+.L29:
+	movl	-20(%ebp), %eax
+	movl	-16(%ebp), %edx
+	sall	$2, %edx
+	addl	%edx, %eax
+	movl	(%eax), %eax
+	movl	-12(%ebp), %edx
+	sall	$2, %edx
+	addl	%edx, %eax
+	movl	8(%ebp), %edx
+	movl	-16(%ebp), %ecx
+	sall	$2, %ecx
+	addl	%ecx, %edx
+	movl	(%edx), %edx
+	movl	-12(%ebp), %ecx
+	sall	$2, %ecx
+	addl	%ecx, %edx
+	movl	(%edx), %ecx
+	movl	12(%ebp), %edx
+	movl	-16(%ebp), %ebx
+	sall	$2, %ebx
+	addl	%ebx, %edx
+	movl	(%edx), %edx
+	movl	-12(%ebp), %ebx
+	sall	$2, %ebx
+	addl	%ebx, %edx
+	movl	(%edx), %edx
+	addl	%ecx, %edx
+	movl	%edx, (%eax)
+	addl	$1, -12(%ebp)
+.L28:
+	movl	-28(%ebp), %eax
+	cmpl	%eax, -12(%ebp)
+	setl	%al
+	testb	%al, %al
+	jne	.L29
+	addl	$1, -16(%ebp)
+.L27:
+	movl	-24(%ebp), %eax
+	cmpl	%eax, -16(%ebp)
+	setl	%al
+	testb	%al, %al
+	jne	.L30
+	movl	$.LC14, 4(%esp)
+	movl	$_ZSt4cout, (%esp)
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	$_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, 4(%esp)
+	movl	%eax, (%esp)
+	call	_ZNSolsEPFRSoS_E
+	movl	-28(%ebp), %ecx
+	movl	-24(%ebp), %edx
+	movl	-20(%ebp), %eax
+	movl	%ecx, 8(%esp)
+	movl	%edx, 4(%esp)
+	movl	%eax, (%esp)
+	call	_Z15imprimir_matrizPPiii
+.LEHE2:
+	jmp	.L33
+.L32:
+	movl	%eax, (%esp)
+.LEHB3:
+	call	_Unwind_Resume
+.LEHE3:
+.L33:
+	addl	$52, %esp
+	popl	%ebx
+	.cfi_restore 3
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.cfi_endproc
+.LFE979:
+	.section	.gcc_except_table
+.LLSDA979:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE979-.LLSDACSB979
+.LLSDACSB979:
+	.uleb128 .LEHB2-.LFB979
+	.uleb128 .LEHE2-.LEHB2
+	.uleb128 .L32-.LFB979
+	.uleb128 0
+	.uleb128 .LEHB3-.LFB979
+	.uleb128 .LEHE3-.LEHB3
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE979:
+	.text
+	.size	_Z14sumar_matricesPPiS0_, .-_Z14sumar_matricesPPiS0_
+	.globl	main
+	.type	main, @function
+main:
+.LFB980:
+	.cfi_startproc
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	andl	$-16, %esp
+	subl	$32, %esp
+	movl	28(%esp), %eax
+	movl	%eax, 4(%esp)
+	movl	24(%esp), %eax
+	movl	%eax, (%esp)
+	call	_Z20multiplicar_matricesPPiS0_
+	movl	$0, %eax
+	leave
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.cfi_endproc
+.LFE980:
+	.size	main, .-main
+	.type	_Z41__static_initialization_and_destruction_0ii, @function
+_Z41__static_initialization_and_destruction_0ii:
+.LFB989:
+	.cfi_startproc
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	subl	$24, %esp
+	cmpl	$1, 8(%ebp)
+	jne	.L36
+	cmpl	$65535, 12(%ebp)
+	jne	.L36
+	movl	$_ZStL8__ioinit, (%esp)
+	call	_ZNSt8ios_base4InitC1Ev
+	movl	$__dso_handle, 8(%esp)
+	movl	$_ZStL8__ioinit, 4(%esp)
+	movl	$_ZNSt8ios_base4InitD1Ev, (%esp)
+	call	__cxa_atexit
+.L36:
+	leave
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.cfi_endproc
+.LFE989:
+	.size	_Z41__static_initialization_and_destruction_0ii, .-_Z41__static_initialization_and_destruction_0ii
+	.type	_GLOBAL__sub_I__Z12crear_matrizRPPiii, @function
+_GLOBAL__sub_I__Z12crear_matrizRPPiii:
+.LFB990:
+	.cfi_startproc
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	subl	$24, %esp
+	movl	$65535, 4(%esp)
+	movl	$1, (%esp)
+	call	_Z41__static_initialization_and_destruction_0ii
+	leave
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.cfi_endproc
+.LFE990:
+	.size	_GLOBAL__sub_I__Z12crear_matrizRPPiii, .-_GLOBAL__sub_I__Z12crear_matrizRPPiii
+	.section	.init_array,"aw"
+	.align 4
+	.long	_GLOBAL__sub_I__Z12crear_matrizRPPiii
+	.hidden	__dso_handle
+	.ident	"GCC: (Ubuntu/Linaro 4.7.3-1ubuntu1) 4.7.3"
+	.section	.note.GNU-stack,"",@progbits
