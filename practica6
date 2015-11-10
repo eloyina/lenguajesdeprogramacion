@@ -1,0 +1,323 @@
+/*
+1. Dentro de un solo archivo fuente , cada estructura o
+unión crea un nuevo tipo que no es ni lo mismo
+ni tampoco es compatible con cualquier otra estructura o unión tipo.
+Sin embargo, un especificador de tipo que es una referencia a
+una estructura o unión tipo definido anteriormente del mismo tipo.
+La etiqueta asocia la referencia a la definición ,
+y efectivamente actúa como el nombre del tipo .
+Para ilustrar esto, solamente los tipos de estructuras j y k son compatibles en este ejemplo
+*/
+
+struct   { int a; int b; } h;
+struct   { int a; int b; } i;
+struct S { int a; int b; } j;
+struct S k;
+////////////////////////////////////////////////////////////////////////
+/* 2.
+ especifica la dirección de un área asignada dinámicamente .
+  Puede liberar el espacio . Especifique una
+  dirección fuera de la zona no se debe asignar de forma dinámica.
+   También, si se especifica un valor NULL ( o NULL si el mismo es
+   válido para una variable puntero dado) , la función free está
+   garantizada para no hacer nada en absoluto. Además , si se intenta
+   volver a la liberación ya ha sido liberado el espacio, así que no sé
+   lo que sería, y nunca debe ser.
+
+Además, el espacio liberado por la función free, garantiza
+de que si no hay datos permanece intacto. Por lo tanto, si una
+vez liberado , no se debe raccesa a la misma zona.
+
+*/
+/*
+g++ -S -o pruebasmat.s pruebasmat.cpp
+
+3. 
+///////////////////////////////////////////////////////////////////////////////
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+
+void crear_matriz(int** &m, int c, int f){
+     m = new int* [c];
+     for(int i = 0; i < c; i++){
+             *(m+i) = new int [f];
+     }
+}
+
+//LLENAR MATRIZ
+
+void llenar_matriz(int** m, int c, int f){
+     for(int i = 0; i < c; i++){
+             for(int j = 0; j < f; j++){
+                     cin>>*(*(m+i)+j);
+             }
+             cout<<endl;
+     }
+}
+
+//IMPRIMIR MATRIZ
+
+void imprimir_matriz(int** m, int c, int f){
+     for(int i = 0; i < c; i++){
+             for(int j = 0; j < f; j++){
+                     cout<<*(*(m+i)+j)<<" ";
+             }
+             cout<<endl;
+     }
+     cout<<endl;
+}
+
+
+void multiplicar_matrices(int**m1, int** m2){
+     int b;
+     int f1,f2,c1,c2;
+     int** m3;
+
+     cout<<"IMPORTANTE: Para la multiplicacion de matrices las filas de la matriz 1 deben"<<endl;
+     cout<<"tener la misma dimension que las columnas de la matriz 2"<<endl;
+     cout<<"Dimensiones de la matriz 1"<<endl<<endl;
+     cout<<"Columnas :";
+     cin>>c1;
+     cout<<"Filas :";
+     cin>>f1;
+     cout<<"Ingresa los valores de la matriz 1"<<endl;
+     crear_matriz(m1,c1,f1);
+     llenar_matriz(m1,c1,f1);
+     cout<<endl;
+     cout<<"Matriz 1"<<endl;
+     cout<<endl;
+     imprimir_matriz(m1,c1,f1);
+     cout<<"Dimensiones de la matriz 2"<<endl;
+     cout<<"Columnas :";
+     cin>>c2;
+     cout<<"Filas :";
+     cin>>f2;
+     cout<<"Ingresa los valores de la matriz 2"<<endl;
+     crear_matriz(m2,c2,f2);
+     llenar_matriz(m2,c2,f2);
+     cout<<endl;
+     cout<<"Matriz 2"<<endl;
+     cout<<endl;
+     imprimir_matriz(m2,c2,f2);
+
+     if(f2 > f1)
+           b = f2;
+     else
+           b = f1;
+
+     crear_matriz(m3,f1,b);
+
+     for(int i = 0; i < f1; i++){
+             for(int j = 0; j < b; j++){
+                     *(*(m3+i)+j) = 0;
+                     for(int k = 0; k < f1; k++){
+                             *(*(m3+i)+j) = *(*(m3+i)+j) + ((*(*(m1+i)+k))*(*(*(m2+k)+j)));
+
+
+                     }
+             }
+     }
+
+     cout<<"Matriz multiplicada"<<endl<<endl;
+     imprimir_matriz(m3,f1,b);
+}
+
+//INTERCAMBIAR DOS FILAS
+
+//SUMAR MATRICES
+
+void sumar_matrices(int**m1, int** m2){
+     int f1,c1;
+     int** m3;
+     cout<<"IMPORTANTE: Para la suma de matrices ambas matrices deben ser de las mismas dimensiones"<<endl;
+     cout<<"Dimensiones de las dos matrices "<<endl<<endl;
+     cout<<"Columnas :";
+     cin>>c1;
+     cout<<"Filas :";
+     cin>>f1;
+     cout<<"Ingresa los valores de la matriz 1"<<endl;
+     crear_matriz(m1,c1,f1);
+     llenar_matriz(m1,c1,f1);
+     cout<<endl;
+     cout<<"Matriz 1"<<endl;
+     cout<<endl;
+     imprimir_matriz(m1,c1,f1);
+     cout<<"Ingresa los valores de la matriz 2"<<endl;
+     crear_matriz(m2,c1,f1);
+     llenar_matriz(m2,c1,f1);
+     cout<<endl;
+     cout<<"Matriz 2"<<endl;
+     cout<<endl;
+     imprimir_matriz(m2,c1,f1);
+
+     crear_matriz(m3,c1,f1);
+
+     for(int i = 0; i < c1; i++){
+             for(int j = 0; j < f1; j++){
+                     *(*(m3+i)+j) = *(*(m1+i)+j) + *(*(m2+i)+j);
+             }
+     }
+
+     cout<<"Matriz Suma"<<endl<<endl;
+     imprimir_matriz(m3,c1,f1);
+}
+
+
+int main ()
+{
+        int **m1;
+        int **m2;
+       multiplicar_matrices(m1,m2);
+        //sumar_matrices(m1,m2);
+        }
+
+
+
+
+
+
+/*
+#include <iostream>
+using namespace std;
+
+enum EnumBits
+{
+    ONE = 1,
+    TWO = 2,
+    FOUR = 4,
+    EIGHT = 8
+};
+
+enum Randoms
+{
+    BIG_COUNT = 20,
+    INTCOUNT = 3
+};
+
+int main(void)
+{
+    // Basic Mathimatical operations
+    cout << (ONE + TWO) << endl;    // Value will be 3.
+    cout << (FOUR - TWO) << endl;   // Value will be 2.
+    cout << (TWO * EIGHT) << endl;  // Value will be 16.
+    cout << (EIGHT / TWO) << endl;  // Value will be 4.
+
+    // Some bitwise operations
+    cout << (ONE | TWO) << endl;    // Value will be 3.
+    cout << (TWO & FOUR) << endl;   // Value will be 0.
+    cout << (TWO ^ EIGHT) << endl;  // Value will be 10.
+    cout << (EIGHT << 1) << endl;   // Value will be 16.
+    cout << (EIGHT >> 1) << endl;   // Value will be 4.
+
+    // Initialize an array based upon an enum value
+    int intArray[INTCOUNT];
+
+    // Have a value initialized be initialized to a static value plus
+    // a value to be determined by an enum value.
+    int someVal = 5 + BIG_COUNT;
+
+    return 0;
+}
+
+
+using System;
+
+public class Test
+{
+
+    enum EnumBits
+        {
+            One =1,
+            Two=2,
+            Four=4,
+            Eight=8,
+        };
+
+    enum Randoms
+    {
+        Bigcount =20,
+        Intcount =3 ,
+    };
+
+    public static void Main()
+	{
+
+        Console.WriteLine( +(EnumBits.One, EnumBits.Two)
+                         );
+    }
+}
+
+*/
+
+#cuando se trabaja con hash en perl el codigo se hace mucho más ordenado
+# y mas intuitivo para el programador a diferencia de solo por arreglos
+#que se debe analizar un momento.
+sub uniq {
+    my %seen;
+    grep !$seen{$_}++, @_;
+}
+
+my @hash=( 'Sainath' => 23, 'Krishna' => 24, 'Shruthi' => 25,  'Shruthi' => 25 );
+my @array = qw(one two three two three);
+my @filtered = uniq(@hash);
+
+print "@filtered\n";
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@ages = (25, 30, 40);
+@names = ("John Paul", "Lisa", "Kumar");
+
+print "\$ages[0] = $ages[0]\n";
+print "\$ages[1] = $ages[1]\n";
+print "\$ages[2] = $ages[2]\n";
+print "\$names[0] = $names[0]\n";
+print "\$names[1] = $names[1]\n";
+print "\$names[2] = $names[2]\n";
+
+
+/*
+The meaning of basic operations such as assignment (denoted by = in C) is specified in a language definition. Thus, for example, the meaning of statements such as
+
+x = y;
+here the value of object y is copied into the memory locations for variable x.
+
+However, before an operation such as an assignment can be accepted by the translator, usually the types of the two operands must be the same (or perhaps compatible in some other specified way).
+
+Thus a language translator must decide whether two types are equal in some cases. We now consider what it means to say that two types are "equal" (or equivalent).
+
+There are two standard ways to determine whether two types are considered the same: name equivalence and structural equivalence.
+
+Name equivalence is the most straightforward: two types are equal if, and only if, they have the same name. Thus, for example, in the code (using C syntax)
+
+   typedef struct {
+           int data[100];
+           int count;
+           } Stack;
+
+   typedef struct {
+           int data[100];
+           int count;
+           } Set;
+
+   Stack x, y;
+   Set r, s;
+if name equivalence is used in the language then x and y would be of the same type and r and s would be of the same type, but the type of x or y would not be equivalent to the type of r or s. This means that statements such as
+
+   x = y;
+   r = s;
+would be valid, but statements such as
+
+   x = r;
+would not be valid (i.e., would not be accepted by a translator).
+
+Using structural equivalence:, two types are equal if, and only if, they have the same "structure", which can be interpreted in different ways.
+A strict interpretation would be that the names and types of each component of the two types must be the same and must be listed in the same order in the type definition.
+A less stringent requirement would be that the component types must be the same and in the same order in the two types, but the names of the components could be different.
+
+Again looking at the example above, using structural equivalence the two types Stack and Set would be considered equivalent, which means that a translator would accept statements such as
+
+x = r;
+*/
